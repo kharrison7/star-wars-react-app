@@ -13,6 +13,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       vehicles: [],
+      starships: [],
       value: '',
       pilot: ''
     };
@@ -59,16 +60,29 @@ class App extends Component {
       console.log(vehicles)
       this.setState({vehicles: vehicles})
     })
-
     // This should bring in the starships data.
     fetch('https://swapi.co/api/starships/').then((response) => {
       return response.json()
+      console.log(response)
     }).then((data) => {
       let starships = data.results;
-      console.log(starships)
+      console.log(data)
       this.setState({starships: starships})
+      console.log(this)
     })
   }
+
+
+
+    // componentDidMount() {
+    //   fetch('https://swapi.co/api/starships/').then((response) => {
+    //     return response.json()
+    //   }).then((data) => {
+    //     let starships = data.results;
+    //     console.log(starships)
+    //     this.setState({starships: starships})
+    //   })
+    // }
 
   // RENDER
   // Before you can map over the data you've fetched, you will first need to store that 'state' in a variable.
@@ -112,28 +126,28 @@ class App extends Component {
       )
     })
 
-    let starshipArray = this.state.starships;
-    let starships = starshipsArray.map((starships) => {
+    // this.state.starships;
+     let starshipsArray = this.state.starships;
+     let starships = starshipsArray.map((starships) => {
       return (
-    /* Create the starship card below: */
-    < div key = {starships.name} className = "col-md-4" >
+    <div key = {starships.name} className = "col-md-4" >
       <div className="card">
         <div className="card-block">
-          <h4 className="card-title">Starship: {starship.name}</h4>
-          <h5 className="card-subtitle mb-2 text-muted">Model: {starship.model}</h5>
+          <h4 className="card-title">Starship: {starships.name}</h4>
+          <h5 className="card-subtitle mb-2 text-muted">Model: {starships.model}</h5>
           <div className="card">
             <div className="card-block">
               <h5 className="card-subtitle mb-2 text-muted">Specs</h5>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">Manufacturer: {starship.manufacturer}</li>
-                <li className="list-group-item">Cost: {starship.cost_in_credits}</li>
-                <li className="list-group-item">Class: {starship.starship_class}</li>
+                <li className="list-group-item">Manufacturer: {starships.manufacturer}</li>
+                <li className="list-group-item">Cost: {starships.cost_in_credits}</li>
+                <li className="list-group-item">Class: {starships.starship_class}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-    < /div>
+    </div>
     )
   })
     return (
