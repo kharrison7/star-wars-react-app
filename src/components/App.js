@@ -59,6 +59,15 @@ class App extends Component {
       console.log(vehicles)
       this.setState({vehicles: vehicles})
     })
+
+    // This should bring in the starships data.
+    fetch('https://swapi.co/api/starships/').then((response) => {
+      return response.json()
+    }).then((data) => {
+      let starships = data.results;
+      console.log(starships)
+      this.setState({starships: starships})
+    })
   }
 
   // RENDER
