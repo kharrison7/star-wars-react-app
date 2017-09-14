@@ -67,9 +67,8 @@ class App extends Component {
       console.log(response)
     }).then((data) => {
       let starships = data.results;
-      console.log(data)
+      console.log(starships)
       this.setState({starships: starships})
-      console.log(this)
     })
     // This should bring in the people data.
     fetch('https://swapi.co/api/people/').then((response) => {
@@ -77,9 +76,8 @@ class App extends Component {
       console.log(response)
     }).then((data) => {
       let people = data.results;
-      console.log(data)
+      console.log(people)
       this.setState({people: people})
-      console.log(this)
     })
   }
 
@@ -147,8 +145,6 @@ class App extends Component {
                 <li className="list-group-item">Crew: {starships.crew}</li>
                 <li className="list-group-item">Passengers: {starships.passengers}</li>
                 <li className="list-group-item">Planetary Atmosphere Speed: {starships.max_atmosphering_speed}</li>
-
-
               </ul>
             </div>
           </div>
@@ -157,6 +153,29 @@ class App extends Component {
     </div>
     )
   })
+
+  let peopleArray = this.state.people;
+  let people = peopleArray.map((people) => {
+   return (
+ <div key = {people.name} className = "col-md-4" >
+   <div className="card">
+     <div className="card-block">
+       <h4 className="card-title">{people.name}</h4>
+       <div className="card">
+         <div className="card-block">
+           <h5 className="card-subtitle mb-2 text-muted">Bio</h5>
+           <ul className="list-group list-group-flush">
+             <li className="list-group-item">Height: {people.height}</li>
+             <li className="list-group-item">Gender: {people.gender}</li>
+           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ )
+})
+
     return (
       <div className="App">
         {/*
@@ -186,6 +205,9 @@ class App extends Component {
             < /div>
             < div className = "row" >
               {starships}
+            < /div>
+            < div className = "row" >
+              {people}
             < /div>
           </section >
         </main>
