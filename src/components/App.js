@@ -167,6 +167,8 @@ class App extends Component {
            <ul className="list-group list-group-flush">
              <li className="list-group-item">Height: {people.height}</li>
              <li className="list-group-item">Gender: {people.gender}</li>
+             <li className="list-group-item">Birth Date: {people.birth_year}</li>
+             <a href={people.homeworld} className="list-group-item">Home World</a>
            </ul>
          </div>
        </div>
