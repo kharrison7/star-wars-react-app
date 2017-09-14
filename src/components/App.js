@@ -73,17 +73,6 @@ class App extends Component {
   }
 
 
-
-    // componentDidMount() {
-    //   fetch('https://swapi.co/api/starships/').then((response) => {
-    //     return response.json()
-    //   }).then((data) => {
-    //     let starships = data.results;
-    //     console.log(starships)
-    //     this.setState({starships: starships})
-    //   })
-    // }
-
   // RENDER
   // Before you can map over the data you've fetched, you will first need to store that 'state' in a variable.
   // Map over the data.
@@ -142,6 +131,13 @@ class App extends Component {
                 <li className="list-group-item">Manufacturer: {starships.manufacturer}</li>
                 <li className="list-group-item">Cost: {starships.cost_in_credits}</li>
                 <li className="list-group-item">Class: {starships.starship_class}</li>
+                <li className="list-group-item">Hyperdrive Rating: {starships.hyperdrive_rating}</li>
+                <li className="list-group-item">Food Stores: {starships.consumables}</li>
+                <li className="list-group-item">Crew: {starships.crew}</li>
+                <li className="list-group-item">Passengers: {starships.passengers}</li>
+                <li className="list-group-item">Planetary Atmosphere Speed: {starships.max_atmosphering_speed}</li>
+
+
               </ul>
             </div>
           </div>
