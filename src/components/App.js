@@ -111,6 +111,31 @@ class App extends Component {
       < /div>
       )
     })
+
+    let starshipArray = this.state.starships;
+    let starships = starshipsArray.map((starships) => {
+      return (
+    /* Create the starship card below: */
+    < div key = {starships.name} className = "col-md-4" >
+      <div className="card">
+        <div className="card-block">
+          <h4 className="card-title">Starship: {starship.name}</h4>
+          <h5 className="card-subtitle mb-2 text-muted">Model: {starship.model}</h5>
+          <div className="card">
+            <div className="card-block">
+              <h5 className="card-subtitle mb-2 text-muted">Specs</h5>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Manufacturer: {starship.manufacturer}</li>
+                <li className="list-group-item">Cost: {starship.cost_in_credits}</li>
+                <li className="list-group-item">Class: {starship.starship_class}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    < /div>
+    )
+  })
     return (
       <div className="App">
         {/*
@@ -137,6 +162,9 @@ class App extends Component {
             </div>
             < div className = "row" >
               {vehicles}
+            < /div>
+            < div className = "row" >
+              {starships}
             < /div>
           </section >
         </main>
