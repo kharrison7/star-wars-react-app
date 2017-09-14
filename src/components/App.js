@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       vehicles: [],
       starships: [],
+      people: [],
       value: '',
       pilot: ''
     };
@@ -68,6 +69,16 @@ class App extends Component {
       let starships = data.results;
       console.log(data)
       this.setState({starships: starships})
+      console.log(this)
+    })
+    // This should bring in the people data.
+    fetch('https://swapi.co/api/people/').then((response) => {
+      return response.json()
+      console.log(response)
+    }).then((data) => {
+      let people = data.results;
+      console.log(data)
+      this.setState({people: people})
       console.log(this)
     })
   }
