@@ -155,7 +155,7 @@ class App extends Component {
                 <li className="list-group-item">Food Stores: {starships.consumables}</li>
                 <li className="list-group-item">Crew: {starships.crew}</li>
                 <li className="list-group-item">Passengers: {starships.passengers}</li>
-                <li className="list-group-item">Planetary Atmosphere Speed: 
+                <li className="list-group-item">Planetary Atmosphere Speed:
                   {starships.max_atmosphering_speed === "n/a" ? "Cannot Pilot Planet-Side" :  starships.max_atmosphering_speed }</li>
               </ul>
             </div>
@@ -180,7 +180,11 @@ class App extends Component {
              <li className="list-group-item">Height: {people.height}</li>
              <li className="list-group-item">Gender: {people.gender}</li>
              <li className="list-group-item">Birth Date: {people.birth_year}</li>
-             <a href={people.homeworld} className="list-group-item">Home World</a>
+             <a href={people.homeworld} className="list-group-item">Home World: {people.homeworld === 'https://swapi.co/api/planets/1/' ? "Tatooine" :
+                people.homeworld === 'https://swapi.co/api/planets/2/' ? "Alderaan" :
+                people.homeworld === 'https://swapi.co/api/planets/20/' ? "Stewjon" :
+                people.homeworld === 'https://swapi.co/api/planets/8/' ? "Naboo" :
+               "Click Below"}</a>
            </ul>
          </div>
        </div>
