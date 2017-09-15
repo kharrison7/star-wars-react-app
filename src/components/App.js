@@ -155,7 +155,8 @@ class App extends Component {
                 <li className="list-group-item">Food Stores: {starships.consumables}</li>
                 <li className="list-group-item">Crew: {starships.crew}</li>
                 <li className="list-group-item">Passengers: {starships.passengers}</li>
-                <li className="list-group-item">Planetary Atmosphere Speed: {starships.max_atmosphering_speed}</li>
+                <li className="list-group-item">Planetary Atmosphere Speed: 
+                  {starships.max_atmosphering_speed === "n/a" ? "Cannot Pilot Planet-Side" :  starships.max_atmosphering_speed }</li>
               </ul>
             </div>
           </div>
