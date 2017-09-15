@@ -12,12 +12,20 @@ class App extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
+      count: 0,
       vehicles: [],
       starships: [],
       people: [],
       value: '',
       pilot: ''
     };
+  }
+
+  //from: http://lucybain.com/blog/2016/react-state-vs-pros/
+  updateCount() {
+    this.setState((prevState, props) => {
+      return { count: prevState.count + 1 }
+    });
   }
 
   // FORM: HANDLE INPUT CHANGES
@@ -82,6 +90,8 @@ class App extends Component {
   }
 
 
+
+
   // RENDER
   // Before you can map over the data you've fetched, you will first need to store that 'state' in a variable.
   // Map over the data.
@@ -95,6 +105,7 @@ class App extends Component {
     Store vehicles state in a variable.
     Map over this variable to access the values needed to render.
     */
+
     let vehicleArray = this.state.vehicles;
     let vehicles = vehicleArray.map((vehicles) => {
       return (
@@ -197,7 +208,7 @@ class App extends Component {
                   <div className="form-group">
                     <input className="form-control col-md-4 offset-md-4" id="pilotName" onChange={this.handleNameChange} name="name" type="text" value={this.state.value} placeholder="Enter your name"/>
                   </div>
-                  <button type="submit" className="btn btn-primary">Submit</button>
+                  <button type="submit" className="btn btn-primary" onClick={() => this.updateCount()}>Submit {this.state.count}</button>
                 </form>
                 <h1>{this.state.pilot}</h1>
               </div>
